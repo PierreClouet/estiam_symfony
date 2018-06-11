@@ -1,0 +1,37 @@
+{% extends '@EstiamBlog/layout.html.twig' %}
+
+{% block body %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.description }}</p>
+    {% if(post.user.id == app.user.id) %}
+        <a href="{{ path('view_post', {'id_post': post.id}) }}">Editer</a>
+    {% endif %}
+    {% if(post.user.id == app.user.id) %}
+    {% elseif(own_note is not defined or own_note is null) %}
+        <p>Notez cette annonce :</p>
+        {{ form_start(form_note) }}
+        {{ form_row(form_note.id_author, { 'value' : post.user.id }) }}
+        {{ form_end(form_note) }}
+    {% else %}
+        <p>Vous avez déjà attribué la note de {{ own_note }}/5 à cet auteur</p>
+    {% endif %}
+    <p>Commentaires :</p>
+    <ul>
+        {% for comment in comments %}
+            <li>auteur : {{ comment.user.username }}</li>
+            <li>commentaire : {{ comment.content }}</li>
+            {% if(post.user.id == app.user.id) %}
+                <p>Notez ce commentaire :</p>
+                {{ form_start(form_note) }}
+                {{ form_row(form_note.id_author, { 'value' : comment.user.id }) }}
+                {{ form_end(form_note) }}
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    {% if(post.user.id != app.user.id) %}
+        {{ form_start(form_comment) }}
+        {{ form_widget(form_comment) }}
+        {{ form_end(form_comment) }}
+    {% endif %}
+{% endblock %}

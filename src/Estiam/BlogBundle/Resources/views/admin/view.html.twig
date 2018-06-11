@@ -1,0 +1,7 @@
+{% extends '@EstiamBlog/layout.html.twig' %}
+
+{% block body %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.description }}</p>
+    <a href="{{ path('admin_post_update', {'id_post' : post.id}) }}">Editer</a>
+{% endblock %}

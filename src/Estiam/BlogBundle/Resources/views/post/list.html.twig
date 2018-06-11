@@ -1,0 +1,16 @@
+{% extends '@EstiamBlog/layout.html.twig' %}
+
+{% block body %}
+    {% include '@EstiamBlog/post/filters.html.twig' %}
+    <h2>Liste posts</h2>
+
+    {% for post in posts %}
+        <h4>{{ post.title }}</h4>
+        <p>par : {{ post.user.username }}</p>
+        <p>desc : {{ post.description }}</p>
+        <a href="{{ path('view_post', {'id_post': post.id}) }}">Voir</a>
+        {% if(post.user.id == app.user.id) %}
+            <a href="{{ path('view_post', {'id_post': post.id}) }}">Editer</a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
