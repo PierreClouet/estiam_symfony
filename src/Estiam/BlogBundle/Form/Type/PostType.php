@@ -5,6 +5,7 @@ namespace Estiam\BlogBundle\Form\Type;
 use Estiam\BlogBundle\Entity\Post;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -16,16 +17,28 @@ class PostType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, array(
+                'attr' => array(
+                    'class' => 'form-control'
+                ),
+                'label' => false
             ))
-            ->add('description', TextType::class)
+            ->add('description', TextareaType::class, array(
+                'attr' => array(
+                    'class' => 'form-control'
+                ),
+                'label' => false
+            ))
             ->add('state', ChoiceType::class, array(
                 'choices' => array(
                     'Brouillon' => 0,
                     'Publié' => 1,
                     'Terminé' => 2
-                )
+                ),
+                'attr' => array(
+                    'class' => 'custom-select form-control'
+                ),
+                'label' => false
             ))
-            ->add('save', SubmitType::class)
             ->getForm();
     }
 

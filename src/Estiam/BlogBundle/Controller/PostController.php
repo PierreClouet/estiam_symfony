@@ -14,7 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/posts")
+ * @Route("/")
  */
 class PostController extends Controller
 {
@@ -59,9 +59,9 @@ class PostController extends Controller
         if ($form_note->isSubmitted() && $form_note->isValid()) {
             $new_note = $form_note->getData();
             $note = $new_note->getNote();
-            $user = $new_note->getIdAuthor();
+            $userRated = $new_note->getIdAuthor();
             $idAuthor = $this->getUser()->getId();
-            $postManager->newNote($new_note, $note, $user, $idAuthor);
+            $postManager->newNote($new_note, $note, $userRated, $idAuthor);
 
             return $this->redirectToRoute('view_post', array(
                 'id_post' => $id_post
@@ -86,7 +86,7 @@ class PostController extends Controller
             'post' => $post,
             'comments' => $comments,
             'form_comment' => $form_comment->createView(),
-            'form_note' => $form_note->createView(),
+            'form_note' => $form_note,
             'own_note' => $own_note
         ));
     }

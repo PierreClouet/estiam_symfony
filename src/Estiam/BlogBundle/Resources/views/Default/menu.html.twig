@@ -1,13 +1,25 @@
-<nav>
-    <ul>
+<nav class="sidebar col-xs-12 col-sm-4 col-lg-3 col-xl-2">
+    <h1 class="site-title"><a href="{{ path('list_post') }}"><em class="fa fa-rocket"></em>Top Classified</a></h1>
+
+    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><em class="fa fa-bars"></em></a>
+    <ul class="nav nav-pills flex-column sidebar-nav">
         {% if app.user %}
-            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
-            <li><a href="{{ path('list_post') }}">Toute les annonces</a></li>
-            <li><a href="{{ path('admin_post_list') }}">Mes annonces</a></li>
-            <li><a href="{{ path('new_post') }}">Nouvelle annonce</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><em class="fa fa-user"></em>Bonjour {{ app.user.username  }}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ path('list_post') }}"><em class="fa fa-list-alt"></em> Toutes
+                les annonces</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ path('new_post') }}"><em class="fa fa-plus"></em>
+                Nouvelle annonce</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ path('admin_post_list') }}"><em class="fa fa-tasks"></em>
+                Mes annonces</a></li>
         {% else %}
-            <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
-            <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
-        {% endif %}
+        <li class="nav-item"><a class="nav-link" href="{{ path('fos_user_security_login') }}"><em
+                        class="fa fa-hand-o-up"></em> Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ path('fos_user_registration_register') }}"><em
+                        class="fa fa-pencil-square-o"></em> Register</a>
+            {% endif %}
+        </li>
     </ul>
+    {% if app.user %}
+        <a href="{{ path('fos_user_security_logout') }}" class="logout-button"><em class="fa fa-power-off"></em> Logout</a>
+    {% endif %}
 </nav>

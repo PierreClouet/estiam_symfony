@@ -113,16 +113,30 @@ class PostManager
         $em->flush();
     }
 
-    public function newNote($new_note, $note, $user, $idAuthor) {
+    public function newNote($new_note, $note, $userRated, $idAuthor) {
+        $repository = $this->doctrine->getRepository(User::class);
+        $user = $repository->findOneBy(array('id' => $userRated));
+
         $new_note->setNote($note);
+
         $new_note->setUser($user);
         $new_note->setIdAuthor($idAuthor);
         $em = $this->doctrine->getManager();
         $em->persist($new_note);
-        $em->flush();
 
         $repository = $this->doctrine->getRepository(Note::class);
         $notes = $repository->findBy(array('user' => $user));
+        $curUserNote = $user->getNote();
+        $allNotes = array($curUserNote);
+        foreach($notes as $note) {
+            $allNotes[] = $note->getNote();
+        }
+
+        $finalNote = array_sum($allNotes) / count($allNotes);
+
+        $user->setNote($finalNote);
+        $em->persist($user);
+        $em->flush();
     }
 
     public function hasAlreadyNote() {

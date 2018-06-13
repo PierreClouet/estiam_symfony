@@ -1,7 +1,7 @@
 {% extends '@EstiamBlog/layout.html.twig' %}
 
 {% block body %}
-    <h2>{{ post.title }}</h2>
+    <h1>{{ post.title }}</h1>
     <p>{{ post.description }}</p>
     {% if(post.user.id == app.user.id) %}
         <a href="{{ path('view_post', {'id_post': post.id}) }}">Editer</a>
@@ -9,29 +9,92 @@
     {% if(post.user.id == app.user.id) %}
     {% elseif(own_note is not defined or own_note is null) %}
         <p>Notez cette annonce :</p>
-        {{ form_start(form_note) }}
-        {{ form_row(form_note.id_author, { 'value' : post.user.id }) }}
-        {{ form_end(form_note) }}
+        {% set formNote = form_note.createView %}
+        {{ form_start(formNote) }}
+        {{ form_row(formNote.id_author, { 'value' : post.user.id }) }}
+        {{ form_end(formNote) }}
     {% else %}
         <p>Vous avez déjà attribué la note de {{ own_note }}/5 à cet auteur</p>
     {% endif %}
-    <p>Commentaires :</p>
-    <ul>
-        {% for comment in comments %}
-            <li>auteur : {{ comment.user.username }}</li>
-            <li>commentaire : {{ comment.content }}</li>
-            {% if(post.user.id == app.user.id) %}
-                <p>Notez ce commentaire :</p>
-                {{ form_start(form_note) }}
-                {{ form_row(form_note.id_author, { 'value' : comment.user.id }) }}
-                {{ form_end(form_note) }}
-            {% endif %}
-        {% endfor %}
-    </ul>
 
-    {% if(post.user.id != app.user.id) %}
-        {{ form_start(form_comment) }}
-        {{ form_widget(form_comment) }}
-        {{ form_end(form_comment) }}
+    <div class="row">
+    <div class="{% if(app.user.id == post.user.id) %} col-lg-12 {% else %} col-lg-6 {% endif %}">
+        <div class="card mb-4">
+            <div class="card-block">
+                <h3 class="card-title">Commentaires</h3>
+                <ul class="timeline">
+                    {% for comment in comments %}
+                        <li>
+                            <div class="timeline-badge"><em class="fa fa-comment"></em></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h5 class="timeline-title mt-2">{{ comment.user.username }}</h5>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>{{ comment.content }}</p>
+                                </div>
+                                {% if(post.user.id == app.user.id) %}
+                                    <hr>
+                                    <p>Notez cet auteur :</p>
+                                    {% set formNote = form_note.createView %}
+                                    {{ form_start(formNote) }}
+                                    {{ form_row(formNote.id_author, { 'value' : comment.user.id }) }}
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <div class="col-12 no-padding">
+                                                    {{ form_row(formNote.note) }}
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="col-12 widget-right no-padding">
+                                                    <button type="submit"
+                                                            class="btn btn-primary btn-sm float-right">
+                                                        Submit
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    {{ form_end(formNote) }}
+                                {% endif %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% if app.user.id != post.user.id %}
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-block">
+                    <h3 class="card-title">Commentaires</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">Laissez votre avis sur cette annonce</h6>
+                    {% if(post.user.id != app.user.id) %}
+                        {{ form_start(form_comment) }}
+                        <fieldset>
+                            <!-- Message body -->
+                            <div class="form-group">
+                                <label class="col-12 control-label no-padding" for="message">Your comment</label>
+                                <div class="col-12 no-padding">
+                                    {{ form_row(form_comment.content) }}
+                                </div>
+                            </div>
+                            <!-- Form actions -->
+                            <div class="form-group">
+                                <div class="col-12 widget-right no-padding">
+                                    <button type="submit" class="btn btn-primary btn-md float-right">Submit</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                        {{ form_end(form_comment) }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     {% endif %}
-{% endblock %}
+    </div>
+
+
+    {% endblock %}

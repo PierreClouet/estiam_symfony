@@ -23,10 +23,13 @@ class NoteType extends AbstractType
                     '3' => 3,
                     '4' => 4,
                     '5' => 5
-                )
+                ),
+                'attr' => array(
+                    'class' => 'custom-form form-control'
+                ),
+                'label' => false
             ))
             ->add('id_author', HiddenType::class)
-            ->add('save', SubmitType::class)
             ->getForm();
     }
 

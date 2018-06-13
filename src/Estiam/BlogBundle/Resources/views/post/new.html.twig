@@ -1,10 +1,43 @@
 {% extends '@EstiamBlog/layout.html.twig' %}
 
 {% block body %}
-    {% for flashMessage in app.session.flashbag.get('error') %}
-        {{ flashMessage }}
-    {% endfor %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Nouvelle annonce</h1>
+            {% for flashMessage in app.session.flashbag.get('error') %}
+                {{ flashMessage }}
+            {% endfor %}
+            {{ form_start(form) }}
+            <fieldset>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Titre</label>
+                    <div class="col-md-9">
+                        {{ form_row(form.title) }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Description</label>
+                    <div class="col-md-9">
+                        {{ form_row(form.description) }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Etat</label>
+                    <div class="col-md-9">
+                        {{ form_row(form.state) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 widget-right no-padding">
+                        <button type="submit"
+                                class="btn btn-primary btn-md float-right">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+            </fieldset>
+        </div>
+    </div>
 {% endblock %}

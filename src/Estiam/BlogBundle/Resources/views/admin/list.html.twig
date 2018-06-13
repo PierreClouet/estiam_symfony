@@ -1,22 +1,62 @@
 {% extends '@EstiamBlog/layout.html.twig' %}
 
 {% block body %}
-    <div style="float: left;">
-        <h2>Vos annonces</h2>
-        <form action="{{ path('admin_post_list') }}" method="post">
-            <select name="state" id="state">
-                <option value="0">Brouillons</option>
-                <option value="1">Publiés</option>
-                <option value="2">Terminés</option>
-            </select>
-            <button type="submit">GO</button>
-        </form>
-        {% for post in posts %}
-            <h4>{{ post.title }}</h4>
-            <p>Par {{ post.description }}</p>
-            <a href="{{ path('admin_post_view', {'id_post': post.id}) }}">Voir</a> <a href="{{ path('admin_post_update', {'id_post': post.id}) }}">Editer</a> <a href="{{ path('admin_post_delete', {'id_post': post.id}) }}">Supprimer</a>
-        {% endfor %}
-    </div>
+    <h2>Vos annonces</h2>
+    <form class="form" action="{{ path('admin_post_list') }}" method="post">
+        <fieldset>
+            <div class="row">
+                <div class="form-group row col-md-6">
+                    <label class="col-md-3  col-form-label">Etat</label>
+                    <div class="col-md-9 widget-right">
+                        <select class="custom-select form-control" name="state" id="state">
+                            <option value="0">Brouillons</option>
+                            <option value="1">Publiés</option>
+                            <option value="2">Terminés</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="col-12 widget-right no-padding">
+                        <button type="submit"
+                                class="btn btn-primary btn-md float-right">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
 
+        </fieldset>
+    </form>
+    <div class="card mb-4">
+        <div class="card-block">
+            <h3 class="card-title">Annonces</h3>
+            <h6 class="card-subtitle mb-2 text-muted">les plus récentes</h6>
+            <div class="divider" style="margin-top: 1rem;"></div>
+            <div class="articles-container">
+                {% for post in posts %}
+                    <div class="article">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-2 date">
+                                    <div class="large">{{ post.createdAt|date('d') }}</div>
+                                    <div class="text-muted">{{ post.createdAt|date('M') }}</div>
+                                    <div class="text-muted">{{ post.createdAt|date('Y') }}</div>
+                                </div>
+                                <div class="col-10">
+                                    <h4><a href="{{ path('view_post', {'id_post': post.id}) }}">{{ post.title }}</a>
+                                    </h4>
+                                    <a class="btn btn-warning btn-sm"
+                                       href="{{ path('admin_post_update', {'id_post': post.id}) }}">Editer</a>
+                                    <a class="btn btn-danger btn-sm"
+                                       href="{{ path('admin_post_delete', {'id_post': post.id}) }}">Supprimer</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div><!--End .article-->
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

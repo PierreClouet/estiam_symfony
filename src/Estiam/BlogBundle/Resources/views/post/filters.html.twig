@@ -1,12 +1,23 @@
-<form action="{{ path('list_post') }}" method="POST">
-    <select name="filter_post" id="filter_post">
-        <option value="user">Auteur</option>
-        <option value="createdAt">Date de publication</option>
-        <option value="title">Titre</option>
-    </select>
-    <select name="direction" id="direction">
-        <option value="desc">Desc</option>
-        <option value="asc">Asc</option>
-    </select>
-    <button type="submit">Filtrer</button>
+<form class="form" action="{{ path('list_post') }}" method="POST">
+    <div class="form-group row">
+        <label class="col-md-3 col-form-label">Filter posts</label>
+        <div class="col-md-3">
+            <select class="custom-select form-control" name="filter_post" id="filter_post">
+                <option value="user">Auteur</option>
+                <option value="createdAt">Date de publication</option>
+                <option value="title">Titre</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select class="custom-select form-control" name="direction" id="direction">
+                <option value="desc">Desc</option>
+                <option value="asc">Asc</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary margin" type="submit"><span class="fa fa-check"></span> &nbsp;Submit
+            </button>
+        </div>
+    </div>
+
 </form>
