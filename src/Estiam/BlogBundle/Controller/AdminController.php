@@ -35,8 +35,11 @@ class AdminController extends Controller
      */
     public function listAction(Request $request, PostManager $postManager)
     {
-        $state = ($request->request->get('state') ? $request->request->get('state') : 0);
-        $posts = $postManager->getOwnPosts($this->getUser()->getId(), $state);
+        $state = ($request->request->get('state') ? $request->request->get('state') : 1);
+        $filter = ($request->request->get('filter_post') ? $request->request->get('filter_post') : 'createdAt');
+        $direction = ($request->request->get('direction') ? $request->request->get('direction') : 'desc');
+
+        $posts = $postManager->getOwnPosts($this->getUser()->getId(), $state, $filter, $direction);
         return $this->render('@EstiamBlog/admin/list.html.twig', array(
             'posts' => $posts
         ));

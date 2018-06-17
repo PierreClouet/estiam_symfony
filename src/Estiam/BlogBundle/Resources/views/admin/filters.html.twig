@@ -1,0 +1,34 @@
+<form class="form" action="{{ path('admin_post_list') }}" method="post">
+    <fieldset>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <select class="custom-select form-control" name="state" id="state">
+                    <option value="0">Brouillons</option>
+                    <option value="1">Publiés</option>
+                    <option value="2">Terminés</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <select class="custom-select form-control" name="filter_post" id="filter_post">
+                    <option value="createdAt">Date de publication</option>
+                    <option value="title">Titre</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <select class="custom-select form-control" name="direction" id="direction">
+                    <option value="desc">Desc</option>
+                    <option value="asc">Asc</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <div class="col-12 widget-right no-padding">
+                    <button type="submit"
+                            class="btn btn-primary btn-md float-right">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+</form>

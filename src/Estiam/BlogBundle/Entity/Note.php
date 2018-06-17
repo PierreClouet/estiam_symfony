@@ -14,6 +14,23 @@ use Doctrine\ORM\Mapping as ORM;
 class Note
 {
     /**
+     * @ORM\OneToOne(targetEntity="Estiam\BlogBundle\Entity\Commentary", cascade={"persist"})
+     * @ORM\JoinColumn(name="id_comment", referencedColumnName="id")
+     */
+
+    private $commentary;
+
+    public function getCommentary()
+    {
+        return $this->commentary;
+    }
+
+    public function setCommentary(Commentary $commentary)
+    {
+        $this->commentary = $commentary;
+    }
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="notes")
      * @ORM\JoinColumn(name="id_user_rated", referencedColumnName="id")
      */

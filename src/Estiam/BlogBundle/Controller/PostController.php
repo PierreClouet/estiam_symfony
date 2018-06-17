@@ -49,7 +49,7 @@ class PostController extends Controller
 
         $comments = $post->getCommentaries();
 
-        $own_note = $postManager->hasAlreadyNote();
+        $own_note = $postManager->hasAlreadyNote($this->getUser()->getId());
 
         //create note form
         $new_note = new Note();
@@ -61,7 +61,9 @@ class PostController extends Controller
             $note = $new_note->getNote();
             $userRated = $new_note->getIdAuthor();
             $idAuthor = $this->getUser()->getId();
-            $postManager->newNote($new_note, $note, $userRated, $idAuthor);
+            $comment = $new_note->getCommentary();
+            dump($comment);
+            $postManager->newNote($new_note, $note, $userRated, $idAuthor, $comment);
 
             return $this->redirectToRoute('view_post', array(
                 'id_post' => $id_post

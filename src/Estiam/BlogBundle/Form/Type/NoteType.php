@@ -2,16 +2,43 @@
 
 namespace Estiam\BlogBundle\Form\Type;
 
+use Doctrine\Common\Persistence\ObjectManager;
+use Estiam\BlogBundle\Entity\Commentary;
 use Estiam\BlogBundle\Entity\Note;
+use Estiam\BlogBundle\Form\EntityToNumberTransformer;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class NoteType extends AbstractType
 {
+    /**
+     * @var ObjectManager
+     */
+    private $objectManager;
+
+    /**
+     * JustAFormType constructor.
+     *
+     * @param ObjectManager $objectManager
+     */
+    public function __construct(ObjectManager $objectManager)
+    {
+        $this->objectManager = $objectManager;
+    }
+
+    /**
+     * @return ObjectManager
+     */
+    public function getObjectManager()
+    {
+        return $this->objectManager;
+    }
+
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -30,6 +57,14 @@ class NoteType extends AbstractType
                 'label' => false
             ))
             ->add('id_author', HiddenType::class)
+            ->add('commentary', HiddenType::class);
+        $builder
+            ->get('commentary')
+            ->addModelTransformer(new EntityToNumberTransformer(
+                $this->getObjectManager(),
+                Commentary::class,
+                'id'
+            ))
             ->getForm();
     }
 

@@ -15,6 +15,8 @@
             {% include '@EstiamBlog/Default/menu.html.twig' %}
             <main class="col-xs-12 col-sm-8 col-lg-9 col-xl-10 pt-3 pl-4 ml-auto">
                 {% block body %}
+                    {% block fos_user_content %}
+                    {% endblock %}
                 {% endblock %}
             </main>
         </div>

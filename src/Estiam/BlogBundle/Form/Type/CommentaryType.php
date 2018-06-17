@@ -19,7 +19,8 @@ class CommentaryType extends AbstractType
                 'attr' => array(
                     'class' => 'form-control',
                     'placeholder' => 'Enter a comment...'
-                )
+                ),
+                'label' => false
             ))
             ->getForm();
     }

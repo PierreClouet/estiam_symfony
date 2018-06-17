@@ -11,7 +11,12 @@
         <p>Notez cette annonce :</p>
         {% set formNote = form_note.createView %}
         {{ form_start(formNote) }}
+        <fieldset>
+
+        </fieldset>
+        {{ form_row(formNote.note) }}
         {{ form_row(formNote.id_author, { 'value' : post.user.id }) }}
+        {{ form_row(formNote.commentary) }}
         {{ form_end(formNote) }}
     {% else %}
         <p>Vous avez déjà attribué la note de {{ own_note }}/5 à cet auteur</p>
@@ -35,10 +40,15 @@
                                 </div>
                                 {% if(post.user.id == app.user.id) %}
                                     <hr>
+                                    {% if(comment.note) %}
+                                         Vous avez attribué une note de {{ comment.note.note }}/5 à cet auteur
+                                    {% else %}
                                     <p>Notez cet auteur :</p>
                                     {% set formNote = form_note.createView %}
                                     {{ form_start(formNote) }}
+                                    {{ form_row(formNote.note) }}
                                     {{ form_row(formNote.id_author, { 'value' : comment.user.id }) }}
+                                    {{ form_row(formNote.commentary, { 'value' : comment.id }) }}
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-md-6">
@@ -57,6 +67,7 @@
                                         </div>
                                     </fieldset>
                                     {{ form_end(formNote) }}
+                                        {% endif %}
                                 {% endif %}
                             </div>
                         </li>
