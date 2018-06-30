@@ -9,6 +9,7 @@
             <h6 class="card-subtitle mb-2 text-muted">les plus récentes</h6>
             <div class="divider" style="margin-top: 1rem;"></div>
             <div class="articles-container">
+                {% if posts %}
                 {% for post in posts %}
                     <div class="article">
                         <div class="col-xs-12">
@@ -31,6 +32,9 @@
                         <div class="clear"></div>
                     </div><!--End .article-->
                 {% endfor %}
+                {% else %}
+                <p>Pas d'annonces</p>
+                {% endif %}
             </div>
         </div>
     </div>

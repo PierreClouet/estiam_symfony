@@ -47,6 +47,22 @@ class Note
     }
 
     /**
+     * @ORM\ManyToOne(targetEntity="Estiam\BlogBundle\Entity\Post", inversedBy="notes")
+     * @ORM\JoinColumn(name="id_post", referencedColumnName="id")
+     */
+    private $post;
+
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    public function setPost(Post $post)
+    {
+        $this->post = $post;
+    }
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")

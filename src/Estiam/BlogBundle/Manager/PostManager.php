@@ -32,18 +32,22 @@ class PostManager
 
     public function getPosts($filter, $direction)
     {
-        $postsRepo = $this->doctrine->getRepository(Post::class);
         if ($filter == 'user') {
             $posts = $this->doctrine->getManager()
-                ->createQuery('SELECT p, u FROM EstiamBlogBundle:Post p JOIN p.user u WHERE p.state = 1 ORDER BY u.username ' . $direction . '')->getResult();
-            dump($posts);
+                ->createQuery('SELECT p, u FROM EstiamBlogBundle:Post p JOIN p.user u WHERE SIZE(p.commentaries) < 1 AND p.state = 1 ORDER BY u.username ' . $direction . '')->getResult();
         } else {
-            $posts = $postsRepo->findBy(
-                array('state' => 1),
-                array($filter => $direction)
-            );
-        }
+            $qb = $this->doctrine->getManager()->createQueryBuilder();
+            $q = $qb->select(array('p'))
+                ->from('EstiamBlogBundle:Post', 'p')
+                ->where(
+                    $qb->expr()->eq('p.state', 1)
+                )
+                ->andWhere('SIZE(p.commentaries) < 1')
+                ->orderBy('p.' . $filter, $direction)
+                ->getQuery();
 
+            return $q->getResult();
+        }
         return $posts;
     }
 
@@ -70,6 +74,27 @@ class PostManager
         $post = $repository->findOneBy(array('id' => $id_post));
 
         return $post;
+    }
+
+    public function getCommentedPosts($filter, $direction)
+    {
+        if ($filter == 'user') {
+            $posts = $this->doctrine->getManager()
+                ->createQuery('SELECT p, u FROM EstiamBlogBundle:Post p JOIN p.user u JOIN p.commentaries c WHERE '.$this->user->getId().' = c.user AND p.state = 1 ORDER BY u.username ' . $direction . '')->getResult();
+        } else {
+            $qb = $this->doctrine->getManager()->createQueryBuilder();
+            $q = $qb->select(array('p'))
+                ->from('EstiamBlogBundle:Post', 'p')
+                ->innerJoin('p.commentaries', 'c')
+                ->where(':user_id = c.user')
+                ->andWhere('p.state = 1')
+                ->orderBy('p.' . $filter, $direction)
+                ->setParameter('user_id', $this->user->getId())
+                ->getQuery();
+
+            return $q->getResult();
+        }
+        return $posts;
     }
 
     public function newPost(Post $post)
@@ -121,53 +146,66 @@ class PostManager
         $em->flush();
     }
 
-    public function newNote($new_note, $note, $userRated, $idAuthor, $comment)
+    public function newCommentNote($new_note, $note, $userRated, $idAuthor, $comment)
     {
-        if (empty($this->hasAlreadyNote($userRated))) {
-            $repository = $this->doctrine->getRepository(User::class);
-            $user = $repository->findOneBy(array('id' => $userRated));
+        $repository = $this->doctrine->getRepository(User::class);
+        $user = $repository->findOneBy(array('id' => $userRated));
+        $em = $this->doctrine->getManager();
 
-            $new_note->setNote($note);
-            $new_note->setUser($user);
-            $new_note->setIdAuthor($idAuthor);
-            $new_note->setCommentary($comment);
-            $comment->setNote($new_note);
-            $em = $this->doctrine->getManager();
-            $em->persist($new_note);
-            $em->persist($comment);
+        $new_note->setNote($note);
+        $new_note->setUser($user);
+        $new_note->setIdAuthor($idAuthor);
+        $new_note->setCommentary($comment);
+        $comment->setNote($new_note);
+        $em->persist($comment);
+        $em->persist($new_note);
+        $em->flush();
 
-            $repository = $this->doctrine->getRepository(Note::class);
-            $notes = $repository->findBy(array('user' => $user));
-            $curUserNote = $user->getNote();
-            $allNotes = array($curUserNote);
-            foreach ($notes as $note) {
-                $allNotes[] = $note->getNote();
-            }
-
-            $finalNote = array_sum($allNotes) / count($allNotes);
-
-            $user->setNote($finalNote);
-            $em->persist($user);
-            $em->flush();
-        }
+        $this->calcUserAvg($user);
     }
 
-    public function hasAlreadyNote($id_user)
+    public function newPostNote($new_note, $note, $userRated, $idAuthor, $post)
+    {
+        $repository = $this->doctrine->getRepository(User::class);
+        $user = $repository->findOneBy(array('id' => $userRated));
+        $em = $this->doctrine->getManager();
+
+        $new_note->setNote($note);
+        $new_note->setUser($user);
+        $new_note->setIdAuthor($idAuthor);
+        $new_note->setPost($post);
+        $em->persist($new_note);
+        $em->flush();
+
+        $this->calcUserAvg($user);
+    }
+
+    public function calcUserAvg($user)
     {
         $repository = $this->doctrine->getRepository(Note::class);
-        $note = $repository->findOneBy(array('idAuthor' => $id_user));
-        if ($note) {
-            return $note->getNote();
+        $notes = $repository->findBy(array('user' => $user));
+        $curUserNote = $user->getNote();
+        $allNotes = array($curUserNote);
+        foreach ($notes as $el) {
+            $allNotes[] = $el->getNote();
         }
-        return null;
+
+        $finalNote = array_sum($allNotes) / count($allNotes);
+
+        $user->setNote($finalNote);
+        $em = $this->doctrine->getManager();
+        $em->persist($user);
+        $em->flush();
     }
 
-    public function hasAlreadyNoteComment($id_post_author, $id_comment_author)
+    public function hasAlreadyNote($id_user, $id_post)
     {
         $repository = $this->doctrine->getRepository(Note::class);
         $note = $repository->findOneBy(
-            array('idAuthor' => $id_post_author),
-            array('user', $id_comment_author)
+            array(
+                'idAuthor' => $id_user,
+                'post' => $id_post
+            )
         );
         if ($note) {
             return $note->getNote();

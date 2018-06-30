@@ -6,106 +6,123 @@
     {% if(post.user.id == app.user.id) %}
         <a href="{{ path('view_post', {'id_post': post.id}) }}">Editer</a>
     {% endif %}
-    {% if(post.user.id == app.user.id) %}
-    {% elseif(own_note is not defined or own_note is null) %}
-        <p>Notez cette annonce :</p>
-        {% set formNote = form_note.createView %}
-        {{ form_start(formNote) }}
-        <fieldset>
-
-        </fieldset>
-        {{ form_row(formNote.note) }}
-        {{ form_row(formNote.id_author, { 'value' : post.user.id }) }}
-        {{ form_row(formNote.commentary) }}
-        {{ form_end(formNote) }}
-    {% else %}
-        <p>Vous avez déjà attribué la note de {{ own_note }}/5 à cet auteur</p>
-    {% endif %}
-
     <div class="row">
-    <div class="{% if(app.user.id == post.user.id) %} col-lg-12 {% else %} col-lg-6 {% endif %}">
-        <div class="card mb-4">
-            <div class="card-block">
-                <h3 class="card-title">Commentaires</h3>
-                <ul class="timeline">
-                    {% for comment in comments %}
-                        <li>
-                            <div class="timeline-badge"><em class="fa fa-comment"></em></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h5 class="timeline-title mt-2">{{ comment.user.username }}</h5>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>{{ comment.content }}</p>
-                                </div>
-                                {% if(post.user.id == app.user.id) %}
-                                    <hr>
-                                    {% if(comment.note) %}
-                                         Vous avez attribué une note de {{ comment.note.note }}/5 à cet auteur
-                                    {% else %}
-                                    <p>Notez cet auteur :</p>
-                                    {% set formNote = form_note.createView %}
-                                    {{ form_start(formNote) }}
-                                    {{ form_row(formNote.note) }}
-                                    {{ form_row(formNote.id_author, { 'value' : comment.user.id }) }}
-                                    {{ form_row(formNote.commentary, { 'value' : comment.id }) }}
-                                    <fieldset>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <div class="col-12 no-padding">
-                                                    {{ form_row(formNote.note) }}
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <div class="col-12 widget-right no-padding">
-                                                    <button type="submit"
-                                                            class="btn btn-primary btn-sm float-right">
-                                                        Submit
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    {{ form_end(formNote) }}
-                                        {% endif %}
-                                {% endif %}
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+        <div class="col-md-12">
+
+
+            {% if(post.user.id == app.user.id) %}
+            {% elseif(post_note is not defined or post_note is null) %}
+                <p>Notez cette annonce :</p>
+                {% set formNote = form_note.createView %}
+                {{ form_start(formNote) }}
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-12 no-padding">
+                            {{ form_row(formNote.note) }}
+                        </div>
+                    </div>
+                    {{ form_row(formNote.id_author, { 'value' : post.user.id }) }}
+                    {{ form_row(formNote.post, { 'value' : post.id }) }}
+                    <div class="form-group">
+                        <div class="col-12 widget-right no-padding">
+                            <button type="submit"
+                                    class="btn btn-primary btn-sm float-right">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+                {{ form_end(formNote) }}
+            {% else %}
+                <p>Vous avez déjà attribué la note de {{ post_note }}/5 à cet auteur</p>
+            {% endif %}
         </div>
     </div>
-    {% if app.user.id != post.user.id %}
+    <div class="row">
+        <div class="{% if(app.user.id == post.user.id) %} col-lg-12 {% else %} col-lg-6 {% endif %}">
+            <div class="card mb-4">
+                <div class="card-block">
+                    <h3 class="card-title">Commentaires</h3>
+                    {% if(comments is not empty) %}
+                        <ul class="timeline">
+
+                            {% for comment in comments %}
+                                <li>
+                                    <div class="timeline-badge"><em class="fa fa-comment"></em></div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h5 class="timeline-title mt-2">{{ comment.user.username }}</h5>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>{{ comment.content }}</p>
+                                        </div>
+                                        {% if(app.user.id != comment.user.id) %}
+                                            <hr>
+                                            {% if(comment.note) %}
+                                                Vous avez attribué une note de {{ comment.note.note }}/5 à cet auteur
+                                            {% else %}
+                                                <p>Notez cet auteur :</p>
+                                                {% set formNote = form_note.createView %}
+                                                {{ form_start(formNote) }}
+                                                {{ form_row(formNote.note) }}
+                                                {{ form_row(formNote.id_author, { 'value' : comment.user.id }) }}
+                                                {{ form_row(formNote.commentary, { 'value' : comment.id }) }}
+                                                <fieldset>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6">
+                                                            <div class="col-12 no-padding">
+                                                                {{ form_row(formNote.note) }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <div class="col-12 widget-right no-padding">
+                                                                <button type="submit"
+                                                                        class="btn btn-primary btn-sm float-right">
+                                                                    Submit
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                {{ form_end(formNote) }}
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Pas de commentaires</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
         <div class="col-lg-6">
             <div class="card mb-4">
                 <div class="card-block">
                     <h3 class="card-title">Commentaires</h3>
                     <h6 class="card-subtitle mb-2 text-muted">Laissez votre avis sur cette annonce</h6>
-                    {% if(post.user.id != app.user.id) %}
-                        {{ form_start(form_comment) }}
-                        <fieldset>
-                            <!-- Message body -->
-                            <div class="form-group">
-                                <label class="col-12 control-label no-padding" for="message">Your comment</label>
-                                <div class="col-12 no-padding">
-                                    {{ form_row(form_comment.content) }}
-                                </div>
+                    {{ form_start(form_comment) }}
+                    <fieldset>
+                        <!-- Message body -->
+                        <div class="form-group">
+                            <label class="col-12 control-label no-padding" for="message">Your comment</label>
+                            <div class="col-12 no-padding">
+                                {{ form_row(form_comment.content) }}
                             </div>
-                            <!-- Form actions -->
-                            <div class="form-group">
-                                <div class="col-12 widget-right no-padding">
-                                    <button type="submit" class="btn btn-primary btn-md float-right">Submit</button>
-                                </div>
+                        </div>
+                        <!-- Form actions -->
+                        <div class="form-group">
+                            <div class="col-12 widget-right no-padding">
+                                <button type="submit" class="btn btn-primary btn-md float-right">Submit</button>
                             </div>
-                        </fieldset>
-                        {{ form_end(form_comment) }}
-                    {% endif %}
+                        </div>
+                    </fieldset>
+                    {{ form_end(form_comment) }}
                 </div>
             </div>
         </div>
-    {% endif %}
     </div>
 
 
-    {% endblock %}
+{% endblock %}

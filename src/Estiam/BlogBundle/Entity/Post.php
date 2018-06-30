@@ -16,6 +16,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Post
 {
     /**
+     * @ORM\OneToMany(targetEntity="Estiam\BlogBundle\Entity\Note", mappedBy="post")
+     */
+
+    private $notes;
+
+    /**
+     * @return Collection|Note[]
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
      * @ORM\OneToMany(targetEntity="Estiam\BlogBundle\Entity\Commentary", mappedBy="post")
      */
 
@@ -32,6 +46,7 @@ class Post
     public function __construct()
     {
         $this->commentaries = new ArrayCollection();
+        $this->notes = new ArrayCollection();
     }
 
     /**

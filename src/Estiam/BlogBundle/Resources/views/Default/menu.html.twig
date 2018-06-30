@@ -4,13 +4,16 @@
     <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><em class="fa fa-bars"></em></a>
     <ul class="nav nav-pills flex-column sidebar-nav">
         {% if app.user %}
-        <li class="nav-item"><a class="nav-link" href="#"><em class="fa fa-user"></em>Bonjour {{ app.user.username  }}</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><em class="fa fa-user"></em>Bonjour {{ app.user.username }}
+            </a></li>
         <li class="nav-item"><a class="nav-link" href="{{ path('list_post') }}"><em class="fa fa-list-alt"></em> Toutes
                 les annonces</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ path('new_post') }}"><em class="fa fa-plus"></em>
                 Nouvelle annonce</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ path('admin_post_list') }}"><em class="fa fa-tasks"></em>
                 Mes annonces</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ path('list_post_commented') }}"><em class="fa fa-tasks"></em>
+                Je les ai commenté</a></li>
         {% else %}
         <li class="nav-item"><a class="nav-link" href="{{ path('fos_user_security_login') }}"><em
                         class="fa fa-hand-o-up"></em> Login</a></li>

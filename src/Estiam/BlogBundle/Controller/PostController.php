@@ -26,13 +26,30 @@ class PostController extends Controller
      */
     public function listPostAction(Request $request, PostManager $postManager)
     {
-            $filter = ($request->request->get('filter_post') ? $request->request->get('filter_post') : 'createdAt');
-            $direction = ($request->request->get('direction') ? $request->request->get('direction') : 'desc');
-            $posts = $postManager->getPosts($filter, $direction);
+        $filter = ($request->request->get('filter_post') ? $request->request->get('filter_post') : 'createdAt');
+        $direction = ($request->request->get('direction') ? $request->request->get('direction') : 'desc');
+        $posts = $postManager->getPosts($filter, $direction);
 
-            return $this->render('@EstiamBlog/post/list.html.twig', array(
-                'posts' => $posts
-            ));
+        return $this->render('@EstiamBlog/post/list.html.twig', array(
+            'posts' => $posts
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @param PostManager $postManager
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/list/commented", name="list_post_commented")
+     */
+    public function listCommentedPostAction(Request $request, PostManager $postManager)
+    {
+        $filter = ($request->request->get('filter_post') ? $request->request->get('filter_post') : 'createdAt');
+        $direction = ($request->request->get('direction') ? $request->request->get('direction') : 'desc');
+        $posts = $postManager->getCommentedPosts($filter, $direction);
+
+        return $this->render('@EstiamBlog/post/list.html.twig', array(
+            'posts' => $posts
+        ));
     }
 
     /**
@@ -49,7 +66,7 @@ class PostController extends Controller
 
         $comments = $post->getCommentaries();
 
-        $own_note = $postManager->hasAlreadyNote($this->getUser()->getId());
+        $post_note = $postManager->hasAlreadyNote($this->getUser()->getId(), $id_post);
 
         //create note form
         $new_note = new Note();
@@ -62,8 +79,13 @@ class PostController extends Controller
             $userRated = $new_note->getIdAuthor();
             $idAuthor = $this->getUser()->getId();
             $comment = $new_note->getCommentary();
-            dump($comment);
-            $postManager->newNote($new_note, $note, $userRated, $idAuthor, $comment);
+            $post = $new_note->getPost();
+            if ($comment) {
+                $postManager->newCommentNote($new_note, $note, $userRated, $idAuthor, $comment);
+            } elseif ($post) {
+                if (!$postManager->hasAlreadyNote($this->getUser()->getId(), $id_post))
+                    $postManager->newPostNote($new_note, $note, $userRated, $idAuthor, $post);
+            }
 
             return $this->redirectToRoute('view_post', array(
                 'id_post' => $id_post
@@ -89,7 +111,7 @@ class PostController extends Controller
             'comments' => $comments,
             'form_comment' => $form_comment->createView(),
             'form_note' => $form_note,
-            'own_note' => $own_note
+            'post_note' => $post_note
         ));
     }
 

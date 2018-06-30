@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="664eaf0e-39bf-417c-95c1-c2a9432cc3f5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/Security/login.html.twig" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/index.html.twig" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/AdminController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/PostController.php" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/PostController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Commentary.php" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Commentary.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Note.php" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Note.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/EstiamBlogBundle.php" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/EstiamBlogBundle.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/CommentaryType.php" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/CommentaryType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Post.php" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Post.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/NoteType.php" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/NoteType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Manager/PostManager.php" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Manager/PostManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/config/services.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/Default/menu.html.twig" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/Default/menu.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/list.html.twig" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/list.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/layout.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/view.html.twig" afterPath="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/view.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,22 +28,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PostController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/PostController.php">
+      <file leaf-file-name="view.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/view.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="110" />
+            <state relative-caret-position="0">
+              <caret line="60" column="66" lean-forward="false" selection-start-line="60" selection-start-column="66" selection-end-line="60" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/AdminController.php">
+      <file leaf-file-name="PostController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/PostController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="874">
-              <caret line="43" column="29" lean-forward="false" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="547">
+              <caret line="51" column="11" lean-forward="false" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
+              <folding>
+                <element signature="e#1857#1890#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,24 +53,17 @@
       <file leaf-file-name="PostManager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Manager/PostManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state relative-caret-position="106">
+              <caret line="84" column="70" lean-forward="false" selection-start-line="84" selection-start-column="70" selection-end-line="84" selection-end-column="70" />
               <folding>
                 <element signature="e#45#71#0#PHP" expanded="true" />
-                <marker date="1529179514454" expanded="true" signature="1055:1147" ph="SELECT p, u EstiamBlogBundle" />
-                <marker date="1529179514454" expanded="true" signature="1055:1164" ph="SELECT p, u EstiamBlogBundle" />
-                <marker date="1529179514454" expanded="true" signature="1055:1167" ph="SELECT p, u EstiamBlogBundle" />
+                <marker date="1530364889757" expanded="true" signature="989:1043" ph="SELECT p, u EstiamBlogBundle" />
+                <marker date="1530364889757" expanded="true" signature="989:1110" ph="SELECT p, u EstiamBlogBundle" />
+                <marker date="1530364889757" expanded="true" signature="989:1127" ph="SELECT p, u EstiamBlogBundle" />
+                <marker date="1530364889757" expanded="true" signature="989:1130" ph="SELECT p, u EstiamBlogBundle" />
+                <marker date="1530364889757" expanded="true" signature="2408:2490" ph="SELECT p, u EstiamBlogBundle" />
+                <marker date="1530364889757" expanded="true" signature="2408:2580" ph="SELECT p, u EstiamBlogBundle" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -83,18 +71,28 @@
       <file leaf-file-name="list.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/list.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+            <state relative-caret-position="38">
+              <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="filters.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/filters.html.twig">
+      <file leaf-file-name="menu.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/Default/menu.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state relative-caret-position="299">
+              <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Post.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Post.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -107,6 +105,7 @@
       <list>
         <option value="XML File" />
         <option value="TWIG File" />
+        <option value="YML File" />
       </list>
     </option>
   </component>
@@ -122,7 +121,6 @@
       <find>can</find>
       <find>Pages</find>
       <find>btn {</find>
-      <find>hasAlreadyNote</find>
       <find>has</find>
       <find>notez cet a</find>
       <find>newNote</find>
@@ -137,6 +135,10 @@
       <find />
       <find>a.btn:visited</find>
       <find>getOwnPosts</find>
+      <find>hasAlreadyNoteComment</find>
+      <find>hasAlreadyNote</find>
+      <find>die()</find>
+      <find>own</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -154,7 +156,6 @@
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/AdminPostType.php" />
         <option value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Tests/Fixtures/Validation/Article.php" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/new.html.twig" />
-        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Post.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/view.html.twig" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/DefaultController.php" />
@@ -167,18 +168,13 @@
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/Default/menu.html.twig" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/filters.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/CommentaryType.php" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/EntityHiddenTransformer.php" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/config/services.yml" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/EntityToNumberTransformer.php" />
-        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/PostController.php" />
-        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/NoteType.php" />
-        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Note.php" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Commentary.php" />
-        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/view.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/FOSUserBundle/view/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/FOSUserBundle/views/Security/login_content.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/FOSUserBundle/views/Security/login.html.twig" />
@@ -189,11 +185,17 @@
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/RegistrationType.php" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/Registration/register.html.twig" />
-        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/list.html.twig" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/filters.html.twig" />
         <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/AdminController.php" />
-        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Manager/PostManager.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Post.php" />
+        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Note.php" />
+        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/NoteType.php" />
+        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/view.html.twig" />
+        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/PostController.php" />
+        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/Default/menu.html.twig" />
+        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/list.html.twig" />
+        <option value="$PROJECT_DIR$/src/Estiam/BlogBundle/Manager/PostManager.php" />
       </list>
     </option>
   </component>
@@ -205,9 +207,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="878" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -225,6 +226,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -346,6 +349,15 @@
               <item name="Estiam" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="BlogBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="translations" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Estiam" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="BlogBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -388,100 +400,10 @@
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Security" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Type" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Registration" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="dist" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="posts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="posts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="dist" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -534,24 +456,28 @@
       <workItem from="1528751345060" duration="4945000" />
       <workItem from="1528911776331" duration="22870000" />
       <workItem from="1529152197174" duration="13260000" />
-      <workItem from="1529229573475" duration="402000" />
+      <workItem from="1529229573475" duration="1348000" />
+      <workItem from="1529567316024" duration="7943000" />
+      <workItem from="1530302614735" duration="4435000" />
+      <workItem from="1530350156685" duration="7670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85295000" />
+    <option name="totallyTimeSpent" value="106289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2846924" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22174536" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3020962" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3020962" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -576,15 +502,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Tests/Fixtures/Validation/Article.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/AdminPostType.php" />
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/new.html.twig" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1242">
@@ -625,34 +542,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/PostType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="41" column="24" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/config/routing.yml" />
     <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/config/routing.yml" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/Default/menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="6" column="56" lean-forward="false" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="59" column="7" lean-forward="false" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -685,32 +580,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Form/EntityToNumberTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2139">
-          <caret line="95" column="9" lean-forward="false" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Note.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="16" column="73" lean-forward="false" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/CommentaryType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="23" column="14" lean-forward="false" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/NoteType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="64" column="29" lean-forward="false" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -783,13 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/view.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="62" column="54" lean-forward="false" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/index.html.twig" />
     <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/filters.html.twig">
       <provider selected="true" editor-type-id="text-editor">
@@ -802,6 +669,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="32" />
+          <folding>
+            <element signature="e#47#87#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -826,34 +696,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/filters.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/PostController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="110" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -865,23 +711,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Manager/PostManager.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#71#0#PHP" expanded="true" />
-            <marker date="1529179514454" expanded="true" signature="1055:1147" ph="SELECT p, u EstiamBlogBundle" />
-            <marker date="1529179514454" expanded="true" signature="1055:1164" ph="SELECT p, u EstiamBlogBundle" />
-            <marker date="1529179514454" expanded="true" signature="1055:1167" ph="SELECT p, u EstiamBlogBundle" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/translations/messages.fr.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/translations/messages.en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        <state relative-caret-position="0">
+          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/PostType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="41" column="24" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Form/EntityToNumberTransformer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="95" column="9" lean-forward="false" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Form/Type/NoteType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Note.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="59" column="39" lean-forward="false" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Entity/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/admin/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/post/view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="60" column="66" lean-forward="false" selection-start-line="60" selection-start-column="66" selection-end-line="60" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Controller/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="51" column="11" lean-forward="false" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
+          <folding>
+            <element signature="e#1857#1890#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Manager/PostManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="84" column="70" lean-forward="false" selection-start-line="84" selection-start-column="70" selection-end-line="84" selection-end-column="70" />
+          <folding>
+            <element signature="e#45#71#0#PHP" expanded="true" />
+            <marker date="1530364889757" expanded="true" signature="989:1043" ph="SELECT p, u EstiamBlogBundle" />
+            <marker date="1530364889757" expanded="true" signature="989:1110" ph="SELECT p, u EstiamBlogBundle" />
+            <marker date="1530364889757" expanded="true" signature="989:1127" ph="SELECT p, u EstiamBlogBundle" />
+            <marker date="1530364889757" expanded="true" signature="989:1130" ph="SELECT p, u EstiamBlogBundle" />
+            <marker date="1530364889757" expanded="true" signature="2408:2490" ph="SELECT p, u EstiamBlogBundle" />
+            <marker date="1530364889757" expanded="true" signature="2408:2580" ph="SELECT p, u EstiamBlogBundle" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Estiam/BlogBundle/Resources/views/Default/menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
           <folding />
         </state>
       </provider>

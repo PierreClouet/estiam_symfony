@@ -5,6 +5,7 @@ namespace Estiam\BlogBundle\Form\Type;
 use Doctrine\Common\Persistence\ObjectManager;
 use Estiam\BlogBundle\Entity\Commentary;
 use Estiam\BlogBundle\Entity\Note;
+use Estiam\BlogBundle\Entity\Post;
 use Estiam\BlogBundle\Form\EntityToNumberTransformer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -57,12 +58,19 @@ class NoteType extends AbstractType
                 'label' => false
             ))
             ->add('id_author', HiddenType::class)
-            ->add('commentary', HiddenType::class);
+            ->add('commentary', HiddenType::class)
+            ->add('post', HiddenType::class);
         $builder
             ->get('commentary')
             ->addModelTransformer(new EntityToNumberTransformer(
                 $this->getObjectManager(),
                 Commentary::class,
+                'id'
+            ));
+        $builder->get('post')
+            ->addModelTransformer(new EntityToNumberTransformer(
+                $this->getObjectManager(),
+                Post::class,
                 'id'
             ))
             ->getForm();
