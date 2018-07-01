@@ -3,43 +3,45 @@
 {% block body %}
     <h1>{{ post.title }}</h1>
     <p>{{ post.description }}</p>
-    {% if(post.user.id == app.user.id) %}
-        <a href="{{ path('view_post', {'id_post': post.id}) }}">Editer</a>
+    {% if(app.user and post.user.id == app.user.id) %}
+        <a href="{{ path('admin_post_update', {'id_post': post.id}) }}">Editer</a>
     {% endif %}
     <div class="row">
         <div class="col-md-12">
-
-
-            {% if(post.user.id == app.user.id) %}
-            {% elseif(post_note is not defined or post_note is null) %}
-                <p>Notez cette annonce :</p>
-                {% set formNote = form_note.createView %}
-                {{ form_start(formNote) }}
-                <fieldset>
-                    <div class="form-group">
-                        <div class="col-12 no-padding">
-                            {{ form_row(formNote.note) }}
+            {% if app.user %}
+                {% if(post.user.id == app.user.id) %}
+                {% elseif(post_note is not defined or post_note is null) %}
+                    <p>Notez cette annonce :</p>
+                    {% set formNote = form_note.createView %}
+                    {{ form_start(formNote) }}
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-12 no-padding">
+                                {{ form_row(formNote.note) }}
+                            </div>
                         </div>
-                    </div>
-                    {{ form_row(formNote.id_author, { 'value' : post.user.id }) }}
-                    {{ form_row(formNote.post, { 'value' : post.id }) }}
-                    <div class="form-group">
-                        <div class="col-12 widget-right no-padding">
-                            <button type="submit"
-                                    class="btn btn-primary btn-sm float-right">
-                                Submit
-                            </button>
+                        {{ form_row(formNote.id_author, { 'value' : post.user.id }) }}
+                        {{ form_row(formNote.post, { 'value' : post.id }) }}
+                        <div class="form-group">
+                            <div class="col-12 widget-right no-padding">
+                                <button type="submit"
+                                        class="btn btn-primary btn-sm float-right">
+                                    Submit
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                </fieldset>
-                {{ form_end(formNote) }}
+                    </fieldset>
+                    {{ form_end(formNote) }}
+                {% else %}
+                    <p>Vous avez déjà attribué la note de {{ post_note }}/5 à cet auteur</p>
+                {% endif %}
             {% else %}
-                <p>Vous avez déjà attribué la note de {{ post_note }}/5 à cet auteur</p>
+                <p><a href="{{ path('fos_user_security_login') }}">Connectez-vous</a> pour noter cette annonce</p>
             {% endif %}
         </div>
     </div>
     <div class="row">
-        <div class="{% if(app.user.id == post.user.id) %} col-lg-12 {% else %} col-lg-6 {% endif %}">
+        <div class="col-lg-6">
             <div class="card mb-4">
                 <div class="card-block">
                     <h3 class="card-title">Commentaires</h3>
@@ -101,24 +103,28 @@
             <div class="card mb-4">
                 <div class="card-block">
                     <h3 class="card-title">Commentaires</h3>
-                    <h6 class="card-subtitle mb-2 text-muted">Laissez votre avis sur cette annonce</h6>
-                    {{ form_start(form_comment) }}
-                    <fieldset>
-                        <!-- Message body -->
-                        <div class="form-group">
-                            <label class="col-12 control-label no-padding" for="message">Your comment</label>
-                            <div class="col-12 no-padding">
-                                {{ form_row(form_comment.content) }}
+                    {% if app.user %}
+                        <h6 class="card-subtitle mb-2 text-muted">Laissez votre avis sur cette annonce</h6>
+                        {{ form_start(form_comment) }}
+                        <fieldset>
+                            <!-- Message body -->
+                            <div class="form-group">
+                                <label class="col-12 control-label no-padding" for="message">Your comment</label>
+                                <div class="col-12 no-padding">
+                                    {{ form_row(form_comment.content) }}
+                                </div>
                             </div>
-                        </div>
-                        <!-- Form actions -->
-                        <div class="form-group">
-                            <div class="col-12 widget-right no-padding">
-                                <button type="submit" class="btn btn-primary btn-md float-right">Submit</button>
+                            <!-- Form actions -->
+                            <div class="form-group">
+                                <div class="col-12 widget-right no-padding">
+                                    <button type="submit" class="btn btn-primary btn-md float-right">Submit</button>
+                                </div>
                             </div>
-                        </div>
-                    </fieldset>
-                    {{ form_end(form_comment) }}
+                        </fieldset>
+                        {{ form_end(form_comment) }}
+                    {% else %}
+                        <p><a href="{{ path('fos_user_security_login') }}">Connectez-vous</a> pour laisser un commentaire</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

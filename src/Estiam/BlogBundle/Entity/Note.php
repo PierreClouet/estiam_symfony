@@ -14,8 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Note
 {
     /**
-     * @ORM\OneToOne(targetEntity="Estiam\BlogBundle\Entity\Commentary", cascade={"persist"})
-     * @ORM\JoinColumn(name="id_comment", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Estiam\BlogBundle\Entity\Commentary", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\JoinColumn(name="id_comment", referencedColumnName="id", onDelete="CASCADE")
      */
 
     private $commentary;
@@ -48,7 +48,7 @@ class Note
 
     /**
      * @ORM\ManyToOne(targetEntity="Estiam\BlogBundle\Entity\Post", inversedBy="notes")
-     * @ORM\JoinColumn(name="id_post", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_post", referencedColumnName="id", onDelete="CASCADE")
      */
     private $post;
 

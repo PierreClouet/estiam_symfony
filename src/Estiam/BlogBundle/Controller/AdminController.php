@@ -19,15 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
 class AdminController extends Controller
 {
     /**
-     * @Route("/", name="admin")
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function indexAction()
-    {
-        return $this->render('@EstiamBlog/admin/index.html.twig');
-    }
-
-    /**
      * @route("/list", name="admin_post_list")
      * @param Request $request
      * @param PostManager $postManager
@@ -35,7 +26,7 @@ class AdminController extends Controller
      */
     public function listAction(Request $request, PostManager $postManager)
     {
-        $state = ($request->request->get('state') ? $request->request->get('state') : 1);
+        $state = ($request->request->get('state') ? $request->request->get('state') : 0);
         $filter = ($request->request->get('filter_post') ? $request->request->get('filter_post') : 'createdAt');
         $direction = ($request->request->get('direction') ? $request->request->get('direction') : 'desc');
 
@@ -77,14 +68,18 @@ class AdminController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if($postManager->canPublish($post)) {
+                $post = $form->getData();
 
-            $post = $form->getData();
+                $postManager->updatePost($post);
 
-            $postManager->updatePost($post);
+                return $this->redirectToRoute('view_post', array(
+                    'id_post' => $id_post
+                ));
+            } else {
+                $this->get('session')->getFlashBag()->set('error', 'Vous ne pouvez pas publier d\'annonces car votre note est inférieure à 4.5');
+            }
 
-            return $this->redirectToRoute('admin_post_view', array(
-                'id_post' => $id_post
-            ));
         }
 
         return $this->render('@EstiamBlog/post/new.html.twig', array(

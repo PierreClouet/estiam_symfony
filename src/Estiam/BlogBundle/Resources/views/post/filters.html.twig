@@ -1,4 +1,5 @@
-<form class="form" action="{{ path('list_post') }}" method="POST">
+<form class="form" action="{{ path(app.request.attributes.get('_route'),
+app.request.attributes.get('_route_params')) }}" method="POST">
     <div class="form-group row">
         <label class="col-md-3 col-form-label">Filter posts</label>
         <div class="col-md-3">

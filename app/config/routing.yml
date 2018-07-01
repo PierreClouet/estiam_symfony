@@ -1,7 +1,7 @@
 estiam_blog:
     resource: "@EstiamBlogBundle/Controller/"
     type:     annotation
-    prefix:   /posts
+    prefix:   /
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
@@ -10,4 +10,4 @@ fos_user:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
-    prefix: /posts
+    prefix: /

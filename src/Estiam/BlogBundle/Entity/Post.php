@@ -16,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Post
 {
     /**
-     * @ORM\OneToMany(targetEntity="Estiam\BlogBundle\Entity\Note", mappedBy="post")
+     * @ORM\OneToMany(targetEntity="Estiam\BlogBundle\Entity\Note", mappedBy="post", cascade={"persist", "remove"}, orphanRemoval=true)
      */
 
     private $notes;
@@ -30,7 +30,7 @@ class Post
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="Estiam\BlogBundle\Entity\Commentary", mappedBy="post")
+     * @ORM\OneToMany(targetEntity="Estiam\BlogBundle\Entity\Commentary", mappedBy="post", cascade={"persist", "remove"}, orphanRemoval=true)
      */
 
     private $commentaries;

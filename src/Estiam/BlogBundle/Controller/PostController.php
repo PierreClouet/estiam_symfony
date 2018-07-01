@@ -14,7 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/")
+ * @Route("/posts")
  */
 class PostController extends Controller
 {
@@ -65,8 +65,12 @@ class PostController extends Controller
         $post = $postManager->getPost($id_post);
 
         $comments = $post->getCommentaries();
-
-        $post_note = $postManager->hasAlreadyNote($this->getUser()->getId(), $id_post);
+        $securityContext = $this->container->get('security.authorization_checker');
+        if ($securityContext->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $post_note = $postManager->hasAlreadyNote($this->getUser()->getId(), $id_post);
+        } else {
+            $post_note = '';
+        }
 
         //create note form
         $new_note = new Note();
@@ -153,7 +157,11 @@ class PostController extends Controller
      */
     public function deletePostAction($id_post, PostManager $postManager)
     {
-        $postManager->deletePost($id_post);
+        if ($postManager->deletePost($id_post)) {
+
+        } else {
+            $this->get('session')->getFlashBag()->set('error', 'Cant delete post');
+        }
 
         return $this->redirectToRoute('list_post');
     }

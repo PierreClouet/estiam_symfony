@@ -80,7 +80,7 @@ class PostManager
     {
         if ($filter == 'user') {
             $posts = $this->doctrine->getManager()
-                ->createQuery('SELECT p, u FROM EstiamBlogBundle:Post p JOIN p.user u JOIN p.commentaries c WHERE '.$this->user->getId().' = c.user AND p.state = 1 ORDER BY u.username ' . $direction . '')->getResult();
+                ->createQuery('SELECT p, u FROM EstiamBlogBundle:Post p JOIN p.user u JOIN p.commentaries c WHERE ' . $this->user->getId() . ' = c.user AND p.state = 1 ORDER BY u.username ' . $direction . '')->getResult();
         } else {
             $qb = $this->doctrine->getManager()->createQueryBuilder();
             $q = $qb->select(array('p'))
@@ -116,13 +116,18 @@ class PostManager
     public function deletePost($id_post)
     {
         $post = $this->getPost($id_post);
+
         $em = $this->doctrine->getManager();
         foreach ($post->getCommentaries() as $comment) {
-            dump($comment->getNote());
             $em->remove($comment);
+        }
+        foreach ($post->getNotes() as $note) {
+            $em->remove($note);
         }
         $em->remove($post);
         $em->flush();
+
+        $this->calcUserAvg($this->user);
     }
 
     public function canPublish(Post $post)
@@ -130,7 +135,7 @@ class PostManager
         $state = $post->getState();
         $note = $this->user->getNote();
 
-        if ($state !== 0 && $note < 4.5) {
+        if ($state == 1 && $note < 4.5) {
             return false;
         }
 
