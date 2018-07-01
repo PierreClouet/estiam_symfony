@@ -1,0 +1,11 @@
+edit: Editer
+menu:
+    hello: Bonjour
+    all_posts: Toutes les annonces
+    new_post: Nouvelle annonce
+    own_posts: Mes annonces
+    commented_posts: Je les ai commenté
+
+filter:
+    title: Filtrer les annonces
+    button: Filtrer

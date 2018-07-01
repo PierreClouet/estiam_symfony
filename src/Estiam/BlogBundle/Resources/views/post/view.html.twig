@@ -4,7 +4,7 @@
     <h1>{{ post.title }}</h1>
     <p>{{ post.description }}</p>
     {% if(app.user and post.user.id == app.user.id) %}
-        <a href="{{ path('admin_post_update', {'id_post': post.id}) }}">Editer</a>
+        <a href="{{ path('admin_post_update', {'id_post': post.id}) }}">{{ 'edit'|trans }}</a>
     {% endif %}
     <div class="row">
         <div class="col-md-12">

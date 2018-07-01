@@ -22,7 +22,7 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 default_target_path: list_post
             logout:
-                target: /posts/list
+                target: /%locale%/posts/list
             anonymous:    true
 
     encoders:
@@ -33,8 +33,8 @@ security:
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin, role: ROLE_USER }
-        - { path: ^/posts/new, role: ROLE_USER }
+        - { path: ^/%locale%/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%locale%/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%locale%/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%locale%/admin, role: ROLE_USER }
+        - { path: ^/%locale%/posts/new, role: ROLE_USER }

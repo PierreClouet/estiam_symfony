@@ -1,7 +1,7 @@
 <form class="form" action="{{ path(app.request.attributes.get('_route'),
 app.request.attributes.get('_route_params')) }}" method="POST">
     <div class="form-group row">
-        <label class="col-md-3 col-form-label">Filter posts</label>
+        <label class="col-md-3 col-form-label">{{ 'filter.title'|trans }}</label>
         <div class="col-md-3">
             <select class="custom-select form-control" name="filter_post" id="filter_post">
                 <option value="user">Auteur</option>
@@ -16,7 +16,8 @@ app.request.attributes.get('_route_params')) }}" method="POST">
             </select>
         </div>
         <div class="col-md-3">
-            <button class="btn btn-primary margin" type="submit"><span class="fa fa-check"></span> &nbsp;Submit
+            <button class="btn btn-primary margin" type="submit"><span class="fa fa-check"></span>
+                &nbsp;{{ 'filter.button'|trans }}
             </button>
         </div>
     </div>

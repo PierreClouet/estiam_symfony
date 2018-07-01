@@ -1,0 +1,11 @@
+edit: Edit
+menu:
+    hello: Hello
+    all_posts: All posts
+    new_post: New post
+    own_posts: My posts
+    commented_posts: I commented their
+
+filter:
+    title: Filter posts
+    button: Filter
